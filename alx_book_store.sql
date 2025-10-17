@@ -21,10 +21,10 @@ cursor.execute("""
 cursor.execute("""
 	CREATE TABLE Books (
 		book_id INT PRIMARY KEY,
-		title VARCHAR(130)
-		author_id INTi,
-		FOREIGN KEY author_id REFERENCES Authors(author_id)
-		price DOUBLE
+		title VARCHAR(130),
+		author_id INT,
+		FOREIGN KEY author_id REFERENCES Authors(author_id),
+		price DOUBLE,
 		publication_date DATE
 	)
 	""")
@@ -42,7 +42,7 @@ cursor.execute("""
 	CREATE TABLE Orders (
 		order_id INT PRIMARY KEY,
 		customer_id INT,
-		FOREIGN KEY customer_id REFERENCES customer_id)
+		FOREIGN KEY customer_id REFERENCES(customer_id),
 		order_date DATE
 	)
 	""")
@@ -53,7 +53,7 @@ cursor.execute("""
 		order_id INT,
 		FOREIGN KEY order_id Orders(order_id),
 		book_id INT,
-		FOREIGN KEY book_id REFERENCES Books(book_id)
+		FOREIGN KEY book_id REFERENCES Books(book_id),
 		quantity DOUBLE
 	)
 	""")
