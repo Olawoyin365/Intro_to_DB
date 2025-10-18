@@ -11,3 +11,5 @@ cursor = mydb.cursor()
 cursor.execute("USE alx_book_store")
 
 cursor.execute("SHOW TABLES")
+for i in cursor:
+	print(i)
