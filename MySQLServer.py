@@ -1,17 +1,17 @@
 import mysql.connector
 from mysql.connector import Error
  
-db_name = "alx_book_store"
+#db_name = "alx_book_store"
  
 try:
     mydb = mysql.connector.connect(
         host="localhost",
         user="olawoyin",
         password="1234",
-        database=db_name
+        database="alx_book_store"
     )
     if mydb.is_connected():
-        print(f"Database '{db_name}' already exists.")
+        print("Database 'alx_book_store' already exists.")
 except Error as e:
     if "Unknown database" in str(e):
         mydb = mysql.connector.connect(
@@ -20,8 +20,8 @@ except Error as e:
             password="1234"
         )
         cursor = mydb.cursor()
-        cursor.execute(f"CREATE DATABASE IF NOT EXISTS {db_name}")
-        print(f"Database '{db_name}' created successfully.")
+        cursor.execute(f"CREATE DATABASE IF NOT EXISTS alx_book_store")
+        print(f"Database 'alx_book_store' created successfully.")
     else:
         print("Error:", e)
 finally:
