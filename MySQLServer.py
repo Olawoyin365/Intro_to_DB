@@ -20,7 +20,7 @@ except Error as e:
             password="1234"
         )
         cursor = mydb.cursor()
-        cursor.execute(f"CREATE DATABASE {db_name}")
+        cursor.execute(f"CREATE DATABASE IF NOT EXISTS {db_name}")
         print(f"Database '{db_name}' created successfully.")
     else:
         print("Error:", e)
