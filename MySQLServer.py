@@ -12,7 +12,7 @@ try:
     )
     if mydb.is_connected():
         print("Database 'alx_book_store' already exists.")
-except Error as e:
+except mysql.connector.Error as e:
     if "Unknown database" in str(e):
         mydb = mysql.connector.connect(
             host="localhost",
