@@ -8,5 +8,7 @@ mydb = mysql.connector.connect(
 )
 
 cursor = mydb.cursor()
-cursor.execute("SHOW COLUMNS FROM Books;")
+cursor.execute("SELECT COLUMN_NAME, DATA_TYPE, IS_NULLABLE, COLUMN_KEY, COLUMN_DEFAULT
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = 'Books';")
 
